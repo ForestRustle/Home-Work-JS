@@ -5,11 +5,10 @@ const test = {
 };
 
 function toQueryString(object) {
-  const arrData = [];
-  for (const [key, value] of Object.entries(object)) {
-    arrData.push (`${key}=${value}`)
-  }
-  return arrData.join('&')
+  const keys = Object.keys(object)
+  const values = Object.values(object)
+  return keys.map((key, indexValue)=> `${key}${values[indexValue]}`).join('&')
+  
 }
 
 console.log(toQueryString(test));
